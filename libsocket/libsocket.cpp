@@ -30,8 +30,7 @@ void CPP_Server::Acpt() {
 	while (1)
 	{
 		SockC = accept(SockS, (SOCKADDR*)&CliAddr, &Len);
-
-		if (SockC == SOCKET_ERROR) return;
+		if (SockS == INVALID_SOCKET) return;
 
 		thread t(sf, SockC);
 		t.detach();
